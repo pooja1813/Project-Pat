@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="patientsApp">
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    	<script src="js/patientsCtrl.js"></script>
+			<script src="js/patientsFactory.js"></script>
+		  <script src="js/app-module.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="patientsCtrl">
+		  <table class="patient-table">
+				<thead>
+					<tr>
+						<th>ID&nbsp;</th>
+						<th>First name&nbsp;</th>
+						<th>Last name&nbsp;</th>
+						<th>Gender&nbsp;</th>
+						<th>Email&nbsp;</th>
+						<th>Street Address&nbsp;</th>
+						<th>State&nbsp;</th>
+						<th>Drugs&nbsp;</th></tr></thead>
+				<tbody>
+ 					<tr ng-repeat="x in patients">
+ 	 					<td>{{ x.id }}</td>
+ 	 					<td>{{ x.first_name }}</td>
+						<td>{{x.last_name}}</td>
+						<td>{{x.gender}}</td>
+  					<td>{{x.Email}}</td>
+						<td>{{x.street_address}}</td>
+						<td>{{x.state}}&nbsp;&nbsp;</td>
+						<td>{{x.drug}}</td>
+					</tr>
+  			</tbody>
+       </table>
+		</div>
+	</body>
+</html>
