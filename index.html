@@ -1,19 +1,22 @@
 <!doctype html>
 <html ng-app="patientsApp">
 	<head>
-		<title>Hello AngularJS</title>
-		  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<title>welcome to patients app</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-resource.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.js"></script>
     	<script src="js/patientsCtrl.js"></script>
 			<script src="js/patientsFactory.js"></script>
 		  <script src="js/app-module.js"></script>
 			<script src="js/smart-table.min.js"></script>
-			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
 		<div ng-controller="patientsCtrl">
-			<button type="button" ng-click="createPatient(row)" ng-view=" " class="btn btn-sm btn-success">
+			<button type="button" ng-click="createPatient()" ng-view=" " class="btn btn-sm btn-success">
 				<i class="glyphicon glyphicon-plus"></i> Add new record
 		  </button>
 		  <table st-table="patients" class="table table-striped">
@@ -39,13 +42,13 @@
 						<td>{{patient.state}}&nbsp;&nbsp;</td>
 						<td>{{patient.drug}}</td>
 						<td>
-							<button type="button" ng-click="deletePatient(row)" class="btn btn-default btn-sm">
+							<button ng-click="deletePatient(patient)" class="btn btn-default btn-sm">
           		<span class="glyphicon glyphicon-trash"></span>
-							</button>
-							<button type="button" class="btn btn-default btn-sm">
+						</button>
+							<button type="button" ng-click="updatePatient(patient)"class="btn btn-default btn-sm">
           		<span class="glyphicon glyphicon-pencil"></span>
         		  </button>
-						  <button type="button" class="btn btn-default btn-sm">Details</button>
+						  <button ng-click="getPatient(patient)" class="btn btn-default btn-sm">Details</button>
 						</td>
 
   			</tbody>
