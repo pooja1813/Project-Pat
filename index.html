@@ -2,36 +2,52 @@
 <html ng-app="patientsApp">
 	<head>
 		<title>Hello AngularJS</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+		  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     	<script src="js/patientsCtrl.js"></script>
 			<script src="js/patientsFactory.js"></script>
 		  <script src="js/app-module.js"></script>
+			<script src="js/smart-table.min.js"></script>
+			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
 		<div ng-controller="patientsCtrl">
-		  <table class="patient-table">
+			<button type="button" ng-click="createPatient(row)" ng-view=" " class="btn btn-sm btn-success">
+				<i class="glyphicon glyphicon-plus"></i> Add new record
+		  </button>
+		  <table st-table="patients" class="table table-striped">
 				<thead>
 					<tr>
 						<th>ID&nbsp;</th>
-						<th>First name&nbsp;</th>
+						<th st-sort="first_name">First name&nbsp;</th>
 						<th>Last name&nbsp;</th>
 						<th>Gender&nbsp;</th>
-						<th>Email&nbsp;</th>
-						<th>Street Address&nbsp;</th>
+					<!--<th>Email&nbsp;</th>
+					 	<th>Street Address&nbsp;</th>-->
 						<th>State&nbsp;</th>
-						<th>Drugs&nbsp;</th></tr></thead>
+						<th>Drugs&nbsp;</th>
+						<th>Actions</th></tr></thead>
 				<tbody>
- 					<tr ng-repeat="x in patients">
- 	 					<td>{{ x.id }}</td>
- 	 					<td>{{ x.first_name }}</td>
-						<td>{{x.last_name}}</td>
-						<td>{{x.gender}}</td>
-  					<td>{{x.Email}}</td>
-						<td>{{x.street_address}}</td>
-						<td>{{x.state}}&nbsp;&nbsp;</td>
-						<td>{{x.drug}}</td>
-					</tr>
+ 					<tr ng-repeat="patient in patients">
+ 	 					<td>{{ patient.id }}</td>
+ 	 					<td>{{ patient.first_name }}</td>
+						<td>{{patient.last_name}}</td>
+						<td>{{patient.gender}}</td>
+  					<!--<td>{{x.email}}</td>
+						<td>{{x.street_address}}</td>-->
+						<td>{{patient.state}}&nbsp;&nbsp;</td>
+						<td>{{patient.drug}}</td>
+						<td>
+							<button type="button" ng-click="deletePatient(row)" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-trash"></span>
+							</button>
+							<button type="button" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-pencil"></span>
+        		  </button>
+						  <button type="button" class="btn btn-default btn-sm">Delete</button>
+						</td>
+
   			</tbody>
        </table>
 		</div>
