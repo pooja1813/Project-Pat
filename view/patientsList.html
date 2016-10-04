@@ -13,7 +13,7 @@
 	</head>
 <body ng-controller="patientsCtrl">-->
 <div ng-controller="patientsCtrl">
-	
+
 	<a href="#/Add"><i class="glyphicon glyphicon-plus"></i> Add new record
 	</a>
 	<table st-table="patients" class="table table-striped">
@@ -42,10 +42,10 @@
 				<button ng-click="deletePatient(patient)" class="btn btn-default btn-sm">
 				<span class="glyphicon glyphicon-trash"></span>
 			</button>
-				<button type="button" ng-click="updatePatient(patient)"class="btn btn-default btn-sm">
-				<span class="glyphicon glyphicon-pencil"></span>
-				</button>
-				<button ng-click="getPatient(patient)" class="btn btn-default btn-sm">Details</button>
+				<a href="#/Update/{{patient.id}}">Edit</a>
+
+				<a href="#/Details/{{patient.id}}">Details
+				</a>
 			</td>
 
 	</tbody>

@@ -18,7 +18,7 @@ angular.module('patientsApp')
     };
 
     patientsFactory.updatePatient = function (pat) {
-        return $http.put(baseUrl + '/' + 8, pat)
+        return $http.put(baseUrl + '/' + pat.id, pat)
     };
 
     patientsFactory.deletePatient = function (id) {
