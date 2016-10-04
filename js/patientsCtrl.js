@@ -1,11 +1,35 @@
-angular.module('patientsApp',[])
-    .controller('patientsCtrl', ['$scope', 'patientsFactory',
-        function ($scope, patientsFactory) {
+var app=angular.module('patientsApp',['ngRoute']);
+app.config(['$routeProvider',
+  function ($routeProvider) {
+      $routeProvider.
+			when('/list', {
+				templateUrl: 'view/patientsList.html',
+				controller: 'patientsCtrl'
+			}).
+			when('/Add', {
+            templateUrl: 'view/create-Patient.html',
+            controller: 'patientsCtrl'
+        }).
+        when('/Update', {
+            templateUrl: 'view/update-patient.html',
+            controller: 'patientsCtrl'
+        }).
+        when('/Details', {
+             templateUrl: 'view/patient-details.html',
+             controller: 'patientsCtrl'
+         }).
+				 otherwise({
+            redirectTo: '/list'
+        });
+  }]);
+    app.controller('patientsCtrl', ['$scope','patientsFactory',
+        function ($scope, patientsFactory,$location) {
 	$scope.status;
   $scope.patients;
-
-    getPatients();
-
+  getPatients();
+    $scope.go = function (path) {
+  $location.path( path );
+};
     function getPatients() {
         patientsFactory.getPatients()
             .then(function (response) {
@@ -17,11 +41,11 @@ angular.module('patientsApp',[])
             });
     }
 	$scope.getPatient = function (pat) {
-        var patient;
+        var pa;
         for (var i = 0; i < $scope.patients.length; i++) {
             var curPat = $scope.patients[i];
             if (curPat.ID === pat.id) {
-                patient = curPat;
+                pa = curPat;
                 break;
             }
         }
@@ -35,10 +59,17 @@ angular.module('patientsApp',[])
           });
     };
 
-    $scope.createPatient = function (pat) {
+    $scope.createPatient = function () {
+            var pat={
+              first_name:$scope.patient.first_name,
+              last_name:$scope.patient.last_name,
+              gender:$scope.patient.gender,
+              email:$scope.patient.email,
+              street_address:$scope.patient.street_address,
+              state:$scope.patient.state,
+              drug:$scope.patient.drug
+            };
 
-
-		// write code to take input of patient data  from user
         patientsFactory.createPatient(pat)
             .then(function (response) {
                 $scope.status = 'Created new patient record';
