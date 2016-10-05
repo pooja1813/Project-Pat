@@ -69,6 +69,7 @@ app.config(['$routeProvider',
             $scope.status = 'Error: Unable to delete patient data: ' + error.message;
         });
     };
+
 }]);
 
 app.controller('detailsCtrl', ['$scope','$http','$routeParams',
