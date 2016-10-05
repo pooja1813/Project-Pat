@@ -1,55 +1,30 @@
 
-	<!--<head>
-		<title>welcome to patients app</title>
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-route.js"></script>
-    	<script src="../js/patientsCtrl.js"></script>
-			<script src="../js/patientsFactory.js"></script>
-		  <script src="../js/app-module.js"></script>
-			<script src="../js/smart-table.min.js"></script>
-	</head>
-<body ng-controller="patientsCtrl">-->
 <div ng-controller="patientsCtrl">
-
-	<a href="#/Add"><i class="glyphicon glyphicon-plus"></i> Add new record
-	</a>
 	<table st-table="patients" class="table table-striped">
-	<thead>
+	<thead id="theadr">
 		<tr>
 			<th>ID&nbsp;</th>
-			<th st-sort="first_name">First name&nbsp;</th>
-			<th>Last name&nbsp;</th>
+			<th st-sort="first_name">First Name&nbsp;</th>
+			<th>Last Name&nbsp;</th>
 			<th>Gender&nbsp;</th>
-		<!--<th>Email&nbsp;</th>
-			<th>Street Address&nbsp;</th>-->
 			<th>State&nbsp;</th>
 			<th>Drugs&nbsp;</th>
 			<th>Actions</th></tr></thead>
 	<tbody>
-		<tr ng-repeat="patient in patients">
+		<tr  ng-repeat="patient in patients">
 			<td>{{ patient.id }}</td>
 			<td>{{ patient.first_name }}</td>
 			<td>{{patient.last_name}}</td>
 			<td>{{patient.gender}}</td>
-			<!--<td>{{x.email}}</td>
-			<td>{{x.street_address}}</td>-->
-			<td>{{patient.state}}&nbsp;&nbsp;</td>
-			<td>{{patient.drug}}</td>
-			<td>
-				<button ng-click="deletePatient(patient)" class="btn btn-default btn-sm">
-				<span class="glyphicon glyphicon-trash"></span>
-			</button>
-				<a href="#/Update/{{patient.id}}">Edit</a>
-
-				<a href="#/Details/{{patient.id}}">Details
-				</a>
+			<td>{{patient.state}}</td>
+			<td id="drug">{{patient.drug}}</td>
+	    <td>
+				<button id="delb" ng-click="deletePatient(patient)" class="btn btn-default btn-sm">
+					<span class="glyphicon glyphicon-trash" id="trash"></span>
+			  </button>
+				<a href="#/Update/{{patient.id}}">| Edit |</a>
+				<a href="#/Details/{{patient.id}}">Details</a>
 			</td>
-
 	</tbody>
 	</table>
 </div>
-<!--</body>
-</html>-->

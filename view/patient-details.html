@@ -1,37 +1,38 @@
-<html><h1> Patient Details</h1>
+<html><h1 class="pheader"> Patient Details</h1>
 <script src="../js/patientsCtrl.js"></script>
 <div ng-controller="detailsCtrl" >
-<table>
+<table class="details">
+
       <tr>
-        <td>Id</td>
+        <td>Id:</td>
         <td>{{patient.id}}</td>
       </tr>
       <tr>
-        <td>First Name</td>
+        <td>First Name:</td>
         <td>{{patient.first_name}}</td>
       </tr>
       <tr>
-        <td>Last Name</td>
+        <td>Last Name:</td>
         <td>{{patient.last_name}}</td>
       </tr>
       <tr>
-        <td>Gender</td>
+        <td>Gender:</td>
         <td>{{patient.gender}}</td>
       </tr>
       <tr>
-        <td>Email</td>
+        <td>Email:</td>
         <td>{{patient.email}}</td>
       </tr>
       <tr>
-        <td>Street Address</td>
+        <td>Street Address:</td>
         <td>{{patient.street_address}}</td>
       </tr>
       <tr>
-        <td>State</td>
+        <td>State:</td>
         <td>{{patient.state}}</td>
       </tr>
       <tr>
-        <td>Drug</td>
+        <td>Drug:</td>
         <td>{{patient.drug}}</td>
       </tr>
 </table>

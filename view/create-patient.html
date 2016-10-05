@@ -1,12 +1,14 @@
-<div class= container>
-  <form ng-submit="createPatient()">
-    <input type="text" placeholder="first name" label="First Name" ng-model="patient.first_name">
-    <input type="text" placeholder="Last name" label="Last Name" ng-model="patient.last_name">
-    <input type="text" placeholder="gender" label="Gender" ng-model="patient.gender">
-    <input type="text" placeholder="email" label="Email" ng-model="patient.email">
-    <input type="text" placeholder="street_address" label="Street Address" ng-model="patient.street_address">
-    <input type="text" placeholder="state" label="State" ng-model="patient.state">
-    <input type="text" placeholder="Drug" label="Drug" ng-model="patient.drug">
-    <input type="submit" label="Add Record">
-  </form>
-  <div>
+<h1 class="pheader">Add New Record</h1>
+<div class= "content" id="formdiv">
+    <form name="createForm"  ng-submit="createPatient()" validate>
+    First Name: <input type="text" placeholder="First Name" label="First Name" ng-model="patient.first_name" ng-required="true"/>
+    Last Name: <input type="text" placeholder="Last name" label="Last Name" ng-model="patient.last_name" ng-required="true"/>
+    <br><br>Gender: <input type="radio" ng-model="patient.gender" value="male"/>male
+    <input type="radio" ng-model="patient.gender" value="female"/>female</br></br>
+    Email: <input type="email" placeholder="email" label="Email"ng-required="true" ng-model="patient.email"/>
+    Street Address: <input type="text" placeholder="street_address" label="Street Address" ng-required="true" ng-model="patient.street_address">
+    State: <input type="text" placeholder="state" label="State" ng-required="true" ng-model="patient.state"/>
+    Drug: <input type="text" placeholder="Drug" label="Drug" ng-required="true" ng-model="patient.drug">
+    <input type="submit" name="create Record" value="Create Record">
+    </form>
+<div>
